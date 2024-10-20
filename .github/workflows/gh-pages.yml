@@ -25,7 +25,7 @@ jobs:
           external_repository: hegusung/wic-project.github.io
           publish_branch: main
           publish_dir: yml
-          destination_dir: _lolbas
+          destination_dir: _wic
           enable_jekyll: true
           keep_files: false
           commit_message: "Applying update "
