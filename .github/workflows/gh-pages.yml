@@ -5,7 +5,7 @@ on:
   workflow_run:
     workflows: ["PUSH & PULL REQUEST - YAML Lint and Schema Validation Checks"]
     types: [completed]
-    branches: [master]
+    branches: [main]
 
 jobs:
   build:
@@ -18,7 +18,7 @@ jobs:
         run: |
           for x in $(find yml/ -name '*.yml'); do echo "---" >> "$x"; mv "$x" "${x/%\.yml/.md}"; done
 
-      - name: Deploy to LOLBAS-Project-hegusung.github.io repo
+      - name: Deploy to WIC-Project-hegusung.github.io repo
         uses: peaceiris/actions-gh-pages@v3
         with:
           deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
