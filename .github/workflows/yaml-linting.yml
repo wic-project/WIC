@@ -1,0 +1,35 @@
+---
+name: PUSH & PULL REQUEST - YAML Lint and Schema Validation Checks
+on: [push,pull_request]
+
+jobs:
+  lintFiles:
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name != github.event.pull_request.base.repo.full_name
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Check file extensions
+        run: |
+          files=$(find "$GITHUB_WORKSPACE/yml" -type f -not -name "*.yml");
+          if [[ $files ]]; then
+            echo "::error::Files with unexpected extension found, please ensure you use '.yml' (all lower case) for files in the yml/ folder.";
+            for i in $files; do echo "::error file=$i,line=1::Unexpected extension"; done
+            exit 1;
+          fi
+          unset files
+      - name: yaml-lint
+        uses: ibiqlik/action-yamllint@v3
+        with:
+          no_warnings: true
+          file_or_dir: yml/**/*.yml
+          config_file: .github/.yamllint
+      - name: Validate Template Schema
+        uses: cketti/action-pykwalify@v0.3-temp-fix
+        with:
+          files: YML-Template.yml
+          schema: YML-Schema.yml
+      - name: Validate Script YAML Schema
+        uses: cketti/action-pykwalify@v0.3-temp-fix
+        with:
+          files: yml/Script/*.yml
+          schema: YML-Schema.yml

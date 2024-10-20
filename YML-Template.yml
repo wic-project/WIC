@@ -1,0 +1,41 @@
+---
+Name: WIC Name
+Description: Something general about the WIC
+Author: The name of the person that created this file
+Created: 1970-01-01 # YYYY-MM-DD (date the person created this file)
+Categories:
+  - Category: Type of script or API 
+    Description: Description of the category
+    Usecase: A description of the usecase
+    MitreID: T1055
+    OperatingSystem: Windows 10 1803, Windows 10 1703
+    Code_Sample:
+      - Code: https://example.com/to/blog/gist/writeup/if/applicable 
+    Tags:
+      - Origin: Value  # How this component can be executed
+  - Category: Type of script or API 
+    Description: Description of the category
+    Usecase: A description of the usecase
+    MitreID: T1033
+    OperatingSystem: Windows 10 All
+    Code_Sample:
+      - Code: https://example.com/to/blog/gist/writeup/if/applicable 
+    Tags:
+      - Origin: Value  # How this component can be executed
+Detection:
+  - IOC: Event ID 10
+  - IOC: binary.exe spawned
+  - Analysis: https://example.com/to/blog/gist/writeup/if/applicable
+  - Sigma: https://example.com/to/sigma/rule/if/applicable
+  - Elastic: https://example.com/to/elastic/rule/if/applicable
+  - Splunk: https://example.com/to/splunk/rule/if/applicable
+  - BlockRule: https://example.com/to/microsoft/block/rules/if/applicable
+Resources:
+  - Link: http://blogpost.com
+  - Link: http://twitter.com/something
+  - Link: http://example.com/Threatintelreport
+Acknowledgement:
+  - Person: John Doe
+    Handle: '@johndoe'
+  - Person: Ola Norman
+    Handle: '@olaNor'

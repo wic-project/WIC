@@ -1,0 +1,33 @@
+---
+name: Update wic-project.github.io
+on:
+  workflow_dispatch:
+  workflow_run:
+    workflows: ["PUSH & PULL REQUEST - YAML Lint and Schema Validation Checks"]
+    types: [completed]
+    branches: [master]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Change .yml to .md
+        run: |
+          for x in $(find yml/ -name '*.yml'); do echo "---" >> "$x"; mv "$x" "${x/%\.yml/.md}"; done
+
+      - name: Deploy to LOLBAS-Project-hegusung.github.io repo
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          external_repository: hegusung/wic-project.github.io
+          publish_branch: master
+          publish_dir: yml
+          destination_dir: _lolbas
+          enable_jekyll: true
+          keep_files: false
+          commit_message: "Applying update "
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
