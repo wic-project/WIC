@@ -12,7 +12,7 @@ Categories:
     Code_Sample:
     Tags:
       - Origin: LOLBas
-      - Origin: Clickable 
+      - Origin: Clickable
   - Category: Remote SCT
     Description: JScript - SCT
     Usecase: JScript can execute a SCT file using the GetObject function. Remote files can be accessed
