@@ -9,6 +9,8 @@ Categories:
     Usecase: A description of the usecase
     MitreID: T1055
     OperatingSystem: Windows 10 1803, Windows 10 1703
+    Code: |
+      # Code exemple
     Code_Sample:
       - Code: https://example.com/to/blog/gist/writeup/if/applicable 
     Tags:

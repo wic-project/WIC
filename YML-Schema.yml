@@ -41,6 +41,9 @@ mapping:
           "OperatingSystem":
             type: str
             required: true
+          "Code":
+            type: str
+            required: false
           "Code_Sample":
             type: seq
             sequence:
