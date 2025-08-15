@@ -1,0 +1,17 @@
+---
+Name: HTML
+Description: A HTML file can be used to smuggle various payloads.
+Author: 'Hegusung'
+Created: 2025-08-15
+Categories:
+  - Category: File
+    Description: Any file can be delivered
+    Usecase: HTML payloads can be used to distribute any file
+    MitreID: T1027
+    OperatingSystem: Windows XP, Windows 7, Windows 8, Windows 10, Windows 11
+    Code_Sample:
+    Tags:
+      - Origin: Clickable
+Detection:
+Resources:
+Acknowledgement:

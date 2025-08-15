@@ -18,11 +18,11 @@ jobs:
         run: |
           for x in $(find yml/ -name '*.yml'); do echo "---" >> "$x"; mv "$x" "${x/%\.yml/.md}"; done
 
-      - name: Deploy to WIC-Project-hegusung.github.io repo
+      - name: Deploy to WIC-Project.github.io repo
         uses: peaceiris/actions-gh-pages@v3
         with:
           deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-          external_repository: hegusung/wic-project.github.io
+          external_repository: wic-project/wic-project.github.io
           publish_branch: main
           publish_dir: yml
           destination_dir: _wic
